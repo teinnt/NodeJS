@@ -1,0 +1,18 @@
+extends ../layouts/common
+
+block content
+    h1 Create User
+
+    if errors
+        each error in errors
+            .alert.alert-danger= error
+
+    form(action='/users/create', method='POST')
+        .form-group
+            lable(for="name") Name
+            input#name.form-control.mt-4.mb-4(type='text', name='name', value=values ? values.name : '')
+        .form-group
+            lable(for="phone") Phone
+            input#name.form-control.mt-3.mb-3(type='text', name='phone', value=values ? values.phone : '')
+        button.btn.btn-primary.ml-auto Create new user
+
